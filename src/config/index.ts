@@ -13,8 +13,8 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "About", href: "#about" },
   ],
   socialLinks: [
-    { text: "LinkedIn", href: "https://github.com/immois/astro-zen" },
-    { text: "OnlineJobsPh", href: "https://github.com/immois/astro-zen" },
+    { text: "LinkedIn", href: "https://www.linkedin.com/in/james-oliver-garalde-56322b327/" },
+    { text: "OnlineJobsPh", href: "https://v2.onlinejobs.ph/jobseekers/info/3501055" },
   ],
   socialImage: "/zen-og.png",
   canonicalURL: "https://astro-zen.vercel.app",
@@ -25,7 +25,7 @@ export const SITE_CONTENT: SiteContent = {
     name: "James Oliver Garalde",
     specialty: "Spreadsheet Solutions Specialist",
     summary:
-      "Spreadsheet Specialist focused on streamlining business workflows through Excel and Google Sheets.",
+      "Spreadsheet Specialist focused on streamlining business workflows through Excel and Google Sheets automation.",
     email: "garaldejamesoliver@gmail.com",
   },
   experience: [
@@ -55,32 +55,34 @@ export const SITE_CONTENT: SiteContent = {
       position: "Property Manager",
       startDate: "2020",
       endDate: "2024",
-      summary:
+      summary: [
         "Oversaw property administration tasks such as record-keeping, rental documentation, and liaison between property owners and occupants.",
+      ]
     },
   ],
   projects: [
     {
-      name: "Spotifu Music",
-      summary: "A music streaming app that emulates Spotify's core features.",
+      name: "Product Sold Tracker",
+      summary: "An automated Google Sheets system for cleaning, storing, and analyzing monthly products sold across multiple branches.",
       linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/spotifu.png",
+      linkSource: "https://docs.google.com/spreadsheets/d/1C1TORO1Oqw_eNHurog6nQJfZ6eoAvO4Yj-R5pt5YJu8/edit?gid=885842640#gid=885842640",
+      image: "/portfolio1.png",
     },
     {
-      name: "Shopp App",
-      summary: "An e-commerce platform that replicates Shopify's key features.",
+      name: "Food Costing Application",
+      summary: "A dynamic Google Sheets food costing system that automatically calculates dish costs, profit margins, and food cost percentages based on raw material prices.",
       linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/shopify-clon.png",
+      linkSource: "https://docs.google.com/spreadsheets/d/1tgyQ_lOwCVh9ypn4B0XRiI9PbN2C-JIoS_otXrLHWgA/edit?gid=1449847546#gid=1449847546",
+      image: "/portfolio2.png",
     },
     {
-      name: "ClonTagram",
-      summary: "A social network that replicates the features of Instagram",
+      name: "Simple Product Price Masterlist",
+      summary: "A dynamic Google Sheets price list with dropdown filters by location and category, displaying menu and delivery platform prices across all products.",
       linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/clone-ig.png",
+      linkSource: "https://docs.google.com/spreadsheets/d/1kT81f1oMEqRmZOeRXQ3RjMOFOBfPdqGp_rRfyLCgqPo/edit?gid=0#gid=0",
+      image: "/portfolio3.png",
     },
+
   ],
   about: {
     description: `
