@@ -23,9 +23,9 @@ export const SITE_CONFIG: SiteConfig = {
 export const SITE_CONTENT: SiteContent = {
   hero: {
     name: "James Oliver Garalde",
-    specialty: "Spreadsheet Solutions Specialist",
+    specialty: "Operations Virtual Assistant",
     summary:
-      "Spreadsheet Specialist focused on streamlining business workflows through Excel and Google Sheets automation.",
+      "Operations Virtual Assistant focused on supporting business efficiency and keeping day-to-day operations running smoothly behind the scenes.",
     email: "garaldejamesoliver@gmail.com",
   },
   experience: [
@@ -35,9 +35,9 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "2026",
       endDate: "Present",
       summary: [
-        "Developed and maintained Google Sheets applications to streamline business operations, including automated trackers, dashboards, and data entry forms tailored to Grumpy Joe's workflows.",
         "Provided operational support by creating and managing digital files, documentation, and system tools to improve team efficiency and daily task management.",
         "Collaborated with staff to identify workflow gaps and delivered simple, practical solutions through spreadsheets, templates, and organized filing systems.",
+        "Developed and maintained Google Sheets applications to streamline business operations, including automated trackers, dashboards, and data entry forms tailored to Grumpy Joe's workflows.",
       ],
     },
     {
@@ -86,9 +86,9 @@ export const SITE_CONTENT: SiteContent = {
   ],
   about: {
     description: `
-      Hi, I’m James Oliver Garalde, a Spreadsheet Solutions Specialist dedicated to helping businesses work smarter. By leveraging the full power of Excel and Google Sheets, I build custom tools that streamline workflows and visualize complex information.
+      Hi, I'm James Oliver Garalde, an Operations Virtual Assistant with hands-on experience in fast-paced operational environments. I thrive behind the scenes, keeping systems organized, processes consistent, and daily operations running without friction.
 
-      Over the years, I’ve honed my skills in building robust, user-friendly applications that not only meet the needs of users but also push the boundaries of what’s possible.
+      Over the years, I have built a reputation for reliability, accuracy, and getting things done consistently.
     `,
     image: "/james-big.jpg",
   },
