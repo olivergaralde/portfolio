@@ -65,6 +65,7 @@ export const SITE_CONTENT: SiteContent = {
       ]
     },
   ],
+  skills: [],
   projects: [
     {
       name: "Product Sold Tracker",
