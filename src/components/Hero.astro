@@ -17,12 +17,14 @@ const titles = Array.isArray(specialty) ? specialty : [specialty];
   <p
     class="mb-9 font-serif text-4xl leading-11.5 font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl"
   >
-    <span
-      id="typing-title"
-      class="inline-block"
-      data-titles={JSON.stringify(titles)}
-      aria-live="polite"
-    >{titles[0]}</span><span class="typing-cursor" aria-hidden="true">|</span>
+    <span class="title-clip relative inline-block overflow-hidden">
+      <span
+        id="slide-title"
+        class="slide-title inline-block"
+        data-titles={JSON.stringify(titles)}
+        aria-live="polite"
+      >{titles[0]}</span>
+    </span>
   </p>
   <p class="mb-16 text-base font-normal text-neutral md:text-lg">
     {summary}
@@ -38,34 +40,30 @@ const titles = Array.isArray(specialty) ? specialty : [specialty];
 </section>
 
 <style>
-  .typing-cursor {
-    margin-left: 2px;
-    animation: blink 1s step-end infinite;
+  .slide-title {
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  .slide-title.is-out {
+    opacity: 0;
+    transform: translateX(1.5em);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .typing-cursor {
-      animation: none;
-    }
-  }
-
-  @keyframes blink {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
+    .slide-title {
+      transition: none;
     }
   }
 </style>
 
 <script>
   // Re-runs on Astro view-transitions navigation too, since it's a plain DOMContentLoaded-style init.
-  function initTypingTitle() {
-    const el = document.getElementById("typing-title");
+  function initSlideTitle() {
+    const el = document.getElementById("slide-title");
     if (!el) return;
-    const titleEl = el; // narrowed, non-null reference for use inside tick()
+    const titleEl = el; // narrowed, non-null reference for use inside the loop
 
     let titles: string[] = [];
     try {
@@ -80,45 +78,38 @@ const titles = Array.isArray(specialty) ? specialty : [specialty];
     ).matches;
     if (prefersReducedMotion) return; // Leave the first title static.
 
-    const TYPE_SPEED = 70; // ms per character while typing
-    const DELETE_SPEED = 40; // ms per character while deleting
-    const HOLD_TIME = 1800; // ms to pause once fully typed
-    const PAUSE_BEFORE_TYPE = 300; // ms to pause once fully deleted
+    const HOLD_TIME = 2400; // ms each title stays fully visible
+    const TRANSITION_TIME = 400; // ms for the slide itself (matches CSS transition)
 
     let titleIndex = 0;
-    let charIndex = titles[0].length;
-    let deleting = false;
 
-    function tick() {
-      const current = titles[titleIndex];
+    function showNext() {
+      // Slide/fade the current title out to the left.
+      titleEl.classList.add("is-out");
 
-      if (!deleting) {
-        charIndex++;
-        titleEl.textContent = current.slice(0, charIndex);
+      setTimeout(() => {
+        titleIndex = (titleIndex + 1) % titles.length;
+        titleEl.textContent = titles[titleIndex];
 
-        if (charIndex >= current.length) {
-          deleting = true;
-          setTimeout(tick, HOLD_TIME);
-          return;
-        }
-        setTimeout(tick, TYPE_SPEED);
-      } else {
-        charIndex--;
-        titleEl.textContent = current.slice(0, charIndex);
+        // Jump the next title off to the right (no transition),
+        // then transition it back into place for a "sliding in" entrance.
+        titleEl.style.transition = "none";
+        titleEl.style.transform = "translateX(-1.5em)";
+        titleEl.classList.remove("is-out");
 
-        if (charIndex <= 0) {
-          deleting = false;
-          titleIndex = (titleIndex + 1) % titles.length;
-          setTimeout(tick, PAUSE_BEFORE_TYPE);
-          return;
-        }
-        setTimeout(tick, DELETE_SPEED);
-      }
+        // Force the browser to apply the above before re-enabling the transition.
+        void titleEl.offsetHeight;
+
+        titleEl.style.transition = "";
+        titleEl.style.transform = "";
+
+        setTimeout(showNext, HOLD_TIME);
+      }, TRANSITION_TIME);
     }
 
-    setTimeout(tick, HOLD_TIME);
+    setTimeout(showNext, HOLD_TIME);
   }
 
-  document.addEventListener("DOMContentLoaded", initTypingTitle);
-  document.addEventListener("astro:page-load", initTypingTitle);
+  document.addEventListener("DOMContentLoaded", initSlideTitle);
+  document.addEventListener("astro:page-load", initSlideTitle);
 </script>
