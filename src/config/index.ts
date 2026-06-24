@@ -23,9 +23,14 @@ export const SITE_CONFIG: SiteConfig = {
 export const SITE_CONTENT: SiteContent = {
   hero: {
     name: "James Oliver Garalde",
-    specialty: "Operations Virtual Assistant",
+    specialty: [
+      "Operations Support Specialist",
+      "Data Entry Specialist",
+      "Project Manager",
+      "Administrative Assistant",
+    ],
     summary:
-      "Operations Virtual Assistant focused on supporting business efficiency and keeping day-to-day operations running smoothly behind the scenes.",
+      "A Virtual Assistant focused on supporting business efficiency and keeping day-to-day operations running smoothly.",
     email: "garaldejamesoliver@gmail.com",
   },
   experience: [
