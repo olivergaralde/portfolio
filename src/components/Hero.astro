@@ -78,7 +78,7 @@ const titles = Array.isArray(specialty) ? specialty : [specialty];
     ).matches;
     if (prefersReducedMotion) return; // Leave the first title static.
 
-    const HOLD_TIME = 2400; // ms each title stays fully visible
+    const HOLD_TIME = 3000; // ms each title stays fully visible
     const TRANSITION_TIME = 400; // ms for the slide itself (matches CSS transition)
 
     let titleIndex = 0;
