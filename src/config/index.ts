@@ -9,6 +9,7 @@ export const SITE_CONFIG: SiteConfig = {
   siteLogo: "/james-small.jpg",
   navLinks: [
     { text: "Experience", href: "#experience" },
+    { text: "Skills", href: "#skills" },
     { text: "Projects", href: "#projects" },
     { text: "About", href: "#about" },
   ],
@@ -29,7 +30,7 @@ export const SITE_CONTENT: SiteContent = {
       "Project Manager",
       "Administrative Assistant",
       "IT Professional",
-      "Data Analytics",
+      "Data Analyst",
     ],
     summary:
       "A Virtual Assistant focused on supporting business efficiency and keeping day-to-day operations running smoothly.",
@@ -77,7 +78,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       icon: "logos:javascript",
-      name: "JScript",
+      name: "JavaScript",
       featured: true,
       category: "category 1",
       percentage: 80,

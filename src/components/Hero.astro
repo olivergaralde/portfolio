@@ -22,8 +22,8 @@ const titles = Array.isArray(specialty) ? specialty : [specialty];
         id="slide-title"
         class="slide-title inline-block"
         data-titles={JSON.stringify(titles)}
-        aria-live="polite"
-      >{titles[0]}</span>
+        aria-live="polite">{titles[0]}</span
+      >
     </span>
   </p>
   <p class="mb-16 text-base font-normal text-neutral md:text-lg">
@@ -32,11 +32,11 @@ const titles = Array.isArray(specialty) ? specialty : [specialty];
 
   <a
     class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff]"
-  href="/GaraldeCV.pdf"
-  download="JamesOliverGaralde_Resume.pdf"
->
-  Download Resume
-</a>
+    href="/GaraldeCV.pdf"
+    download="JamesOliverGaralde_Resume.pdf"
+  >
+    Download Resume
+  </a>
 </section>
 
 <style>
@@ -78,7 +78,7 @@ const titles = Array.isArray(specialty) ? specialty : [specialty];
     ).matches;
     if (prefersReducedMotion) return; // Leave the first title static.
 
-    const HOLD_TIME = 3000; // ms each title stays fully visible
+    const HOLD_TIME = 2400; // ms each title stays fully visible
     const TRANSITION_TIME = 400; // ms for the slide itself (matches CSS transition)
 
     let titleIndex = 0;

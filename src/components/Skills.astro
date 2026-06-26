@@ -10,55 +10,59 @@ interface Props {
 const { skills } = Astro.props;
 ---
 
-<Section text="Skills and Competencies" href="skills">
-  {
-    skills.map(({ icon, name, featured, category, percentage }) => {
-      const radius = 20;
-      const circumference = 2 * Math.PI * radius;
-      const offset = -(circumference - (percentage / 100) * circumference);
-      return (
-        <div class="skill-card flex h-16 w-40 flex-row items-center gap-1 rounded-2xl border border-white/10 bg-white/5 p-2">
-          <Icon name={icon} class="h-8 w-8 flex-shrink-0" />
-          <h1 class="text-sm font-medium text-white">{name}</h1>
+<Section text="Skills" href="skills">
+  <div class="flex flex-wrap gap-2">
+    {
+      skills.map(({ icon, name, featured, category, percentage }) => {
+        const radius = 16;
+        const circumference = 2 * Math.PI * radius;
+        const offset = -(circumference - (percentage / 100) * circumference);
 
-          <svg
-            width="76"
-            height="76"
-            viewBox="0 0 100 100"
-            class="-ml-2 flex-shrink-0"
-          >
-            <circle
-              cx="50"
-              cy="50"
-              r={radius}
-              fill="none"
-              stroke="#e5e5e5"
-              stroke-width="8"
-            />
-            <circle
-              cx="50"
-              cy="50"
-              r={radius}
-              fill="none"
-              stroke="#5755ff"
-              stroke-width="8"
-              stroke-linecap="butt"
-              stroke-dasharray={circumference}
-              stroke-dashoffset={offset}
-              transform="rotate(-90 50 50)"
-            />
-            <text
-              x="50"
-              y="55"
-              text-anchor="middle"
-              font-size="12"
-              fill="#ffffff"
+        return (
+          <div class="skill-card flex h-10 w-fit flex-row items-center gap-1 rounded-xl border border-white/10 bg-white/5 py-1.5 pr-0.5 pl-1.5">
+            <Icon name={icon} class="h-5 w-5 flex-shrink-0" />
+            <h1 class="text-xs font-medium whitespace-nowrap text-white">
+              {name}
+            </h1>
+            <svg
+              width="70"
+              height="70"
+              viewBox="0 0 100 100"
+              class="-mr-5 -ml-5 flex-shrink-0"
             >
-              {percentage}%
-            </text>
-          </svg>
-        </div>
-      );
-    })
-  }
+              <circle
+                cx="50"
+                cy="50"
+                r={radius}
+                fill="none"
+                stroke="#e5e5e5"
+                stroke-width="6"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r={radius}
+                fill="none"
+                stroke="#5755ff"
+                stroke-width="6"
+                stroke-linecap="butt"
+                stroke-dasharray={circumference}
+                stroke-dashoffset={offset}
+                transform="rotate(-90 50 50)"
+              />
+              <text
+                x="50"
+                y="56"
+                text-anchor="middle"
+                font-size="12"
+                fill="#ffffff"
+              >
+                {percentage}%
+              </text>
+            </svg>
+          </div>
+        );
+      })
+    }
+  </div>
 </Section>
