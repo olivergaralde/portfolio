@@ -10,6 +10,11 @@ interface Props {
 const { skills } = Astro.props;
 ---
 
+<style>
+  :global([data-icon^="mdi:"]) {
+    color: #f3f3f3;
+  }
+</style>
 <Section text="Skills" href="skills">
   <div class="flex flex-wrap gap-2">
     {
