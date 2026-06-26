@@ -28,6 +28,8 @@ export const SITE_CONTENT: SiteContent = {
       "Data Entry Specialist",
       "Project Manager",
       "Administrative Assistant",
+      "IT Professional",
+      "Data Analytics",
     ],
     summary:
       "A Virtual Assistant focused on supporting business efficiency and keeping day-to-day operations running smoothly.",
@@ -65,7 +67,22 @@ export const SITE_CONTENT: SiteContent = {
       ]
     },
   ],
-  skills: [],
+  skills: [
+    {
+      icon: "logos:react",
+      name: "React",
+      featured: true,
+      category: "category 1",
+      percentage: 99,
+    },
+    {
+      icon: "logos:javascript",
+      name: "JScript",
+      featured: true,
+      category: "category 1",
+      percentage: 80,
+    },
+  ],
   projects: [
     {
       name: "Product Sold Tracker",
